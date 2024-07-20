@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flex; "> 
+    <div style="width: 20%; display: flex; flex-direction: column; gap: 2;">
+      <form style="display: flex; flex-direction: column;">
+      <span>Name</span>
+      <input type="text" id="i1">
+      <span>Address</span>
+      <input type="text" id="i2">
+      <span>phone</span>
+      <input type="text" id="i3">
+      <span>email</span>
+      <input type="email" id="i4">
+      <span>age</span>
+      <input type="age" id="i5">
+      <span>height</span>
+      <input type="number" id="i6">
+    </form>
+    <button onclick="submit()">Submit</button>
+  </div> 
+    <div><div id="data"></div></div>
+
+  </div>
+  </body>
+
+  <script>
+
+    const users = [
+      {
+        name: "John Doe",
+        address: "123 Maple Street, Springfield, IL 62704",
+        phone: "(217) 555-1234",
+        email: "john.doe@example.com",
+        age: 30,
+        height: 175,
+      },
+      {
+        name: "Jane Smith",
+        address: "456 Oak Avenue, Madison, WI 53703",
+        phone: "(608) 555-5678",
+        email: "jane.smith@example.com",
+        age: 28,
+        height: 160,
+      },
+      {
+        name: "Robert Brown",
+        address: "789 Pine Road, Austin, TX 73301",
+        phone: "(512) 555-9012",
+        email: "robert.brown@example.com",
+        age: 35,
+        height: 180,
+      },
+      {
+        name: "Emily Johnson",
+        address: "321 Birch Lane, Seattle, WA 98101",
+        phone: "(206) 555-3456",
+        email: "emily.johnson@example.com",
+        age: 26,
+        height: 165,
+      },
+      {
+        name: "Michael Davis",
+        address: "654 Cedar Street, Denver, CO 80202",
+        phone: "(303) 555-7890",
+        email: "michael.davis@example.com",
+        age: 32,
+        height: 178,
+      },
+      {
+        name: "Sarah Wilson",
+        address: "987 Elm Avenue, Boston, MA 02110",
+        phone: "(617) 555-1122",
+        email: "sarah.wilson@example.com",
+        age: 29,
+        height: 170,
+      },
+      {
+        name: "David Martinez",
+        address: "159 Oak Road, Miami, FL 33101",
+        phone: "(305) 555-3344",
+        email: "david.martinez@example.com",
+        age: 34,
+        height: 172,
+      },
+      {
+        name: "Laura Hernandez",
+        address: "753 Pine Street, San Francisco, CA 94103",
+        phone: "(415) 555-5566",
+        email: "laura.hernandez@example.com",
+        age: 27,
+        height: 158,
+      },
+      {
+        name: "James Lee",
+        address: "852 Willow Lane, Chicago, IL 60605",
+        phone: "(312) 555-7788",
+        email: "james.lee@example.com",
+        age: 31,
+        height: 182,
+      },
+      {
+        name: "Patricia Gonzalez",
+        address: "456 Spruce Avenue, Los Angeles, CA 90001",
+        phone: "(213) 555-9900",
+        email: "patricia.gonzalez@example.com",
+        age: 33,
+        height: 168,
+      },
+    ];  
+
+    submit=()=>{
+    const name= document.getElementById("i1");
+    const address= document.getElementById("i2");
+    const phone= document.getElementById("i3");
+    const email= document.getElementById("i4");
+    const age= document.getElementById("i5");
+    const height= document.getElementById("i6");
+  
+    users.push({
+    name: name.value,
+    address: address.value,
+    phone: phone.value,
+    email: email.value,
+    age: age.value,
+    height: height.value
+  })
+var usersData= users.map((val)=>{
+  return `<div><span> ${val.name} <span/>
+    <span> ${val.address} <span/>
+    <span> ${val.phone} <span/>
+      <span> ${val.email} <span/>
+        <span> ${val.age} <span/>
+          <span> ${val.height}<span/> <div/> ` 
+} )
+document.getElementById("data").innerHTML=(usersData)
+}
+
+
+  </script>
+</html>

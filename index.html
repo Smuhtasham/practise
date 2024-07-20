@@ -111,7 +111,36 @@
         height: 168,
       },
     ];
+    const usersData = users.map((val, i) => {
+      return `<div><div> 
+          ${i}
+          ${val.name} 
+     ${val.address} 
+     ${val.phone} 
+       ${val.email} 
+         ${val.age} 
+         ${val.height} </div>
+         <button onclick="del(${i})"> x </button>
+         </div> `;
+    });
 
+    del=(i)=>{
+     users.splice(i,1);
+     const usersData = users.map((val, i) => {
+        return `<div> 
+          ${i}
+          ${val.name} 
+     ${val.address} 
+     ${val.phone} 
+       ${val.email} 
+         ${val.age} 
+         ${val.height} <button onclick="del(${i})"> x </button> <div/> `;
+      });
+      document.getElementById("data").innerHTML = usersData;
+    }
+    
+
+    document.getElementById("data").innerHTML = usersData;
     submit = () => {
       const name = document.getElementById("i1");
       const address = document.getElementById("i2");
@@ -128,7 +157,7 @@
         age: age.value,
         height: height.value,
       });
-      var usersData = users.map((val, i) => {
+      const usersData = users.map((val, i) => {
         return `<div> 
           ${i}
           ${val.name} 
@@ -136,12 +165,10 @@
      ${val.phone} 
        ${val.email} 
          ${val.age} 
-         ${val.height}<button>X<button/> <div/> `;
+         ${val.height} <button onclick="del(${i})"> x </button><div/> `;
       });
 
       document.getElementById("data").innerHTML = usersData;
     };
-      
-    
   </script>
 </html>

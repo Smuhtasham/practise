@@ -6,31 +6,29 @@
     <title>Document</title>
   </head>
   <body>
-    <div style="display: flex; "> 
-    <div style="width: 20%; display: flex; flex-direction: column; gap: 2;">
-      <form style="display: flex; flex-direction: column;">
-      <span>Name</span>
-      <input type="text" id="i1">
-      <span>Address</span>
-      <input type="text" id="i2">
-      <span>phone</span>
-      <input type="text" id="i3">
-      <span>email</span>
-      <input type="email" id="i4">
-      <span>age</span>
-      <input type="age" id="i5">
-      <span>height</span>
-      <input type="number" id="i6">
-    </form>
-    <button onclick="submit()">Submit</button>
-  </div> 
-    <div><div id="data"></div></div>
-
-  </div>
+    <div style="display: flex">
+      <div style="width: 20%; display: flex; flex-direction: column; gap: 2">
+        <form style="display: flex; flex-direction: column">
+          <span>Name</span>
+          <input type="text" id="i1" />
+          <span>Address</span>
+          <input type="text" id="i2" />
+          <span>phone</span>
+          <input type="text" id="i3" />
+          <span>email</span>
+          <input type="email" id="i4" />
+          <span>age</span>
+          <input type="age" id="i5" />
+          <span>height</span>
+          <input type="number" id="i6" />
+        </form>
+        <button onclick="submit()">Submit</button>
+      </div>
+      <div><div id="data"></div></div>
+    </div>
   </body>
 
   <script>
-
     const users = [
       {
         name: "John Doe",
@@ -112,35 +110,38 @@
         age: 33,
         height: 168,
       },
-    ];  
+    ];
 
-    submit=()=>{
-    const name= document.getElementById("i1");
-    const address= document.getElementById("i2");
-    const phone= document.getElementById("i3");
-    const email= document.getElementById("i4");
-    const age= document.getElementById("i5");
-    const height= document.getElementById("i6");
-  
-    users.push({
-    name: name.value,
-    address: address.value,
-    phone: phone.value,
-    email: email.value,
-    age: age.value,
-    height: height.value
-  })
-var usersData= users.map((val)=>{
-  return `<div><span> ${val.name} <span/>
-    <span> ${val.address} <span/>
-    <span> ${val.phone} <span/>
-      <span> ${val.email} <span/>
-        <span> ${val.age} <span/>
-          <span> ${val.height}<span/> <div/> ` 
-} )
-document.getElementById("data").innerHTML=(usersData)
-}
+    submit = () => {
+      const name = document.getElementById("i1");
+      const address = document.getElementById("i2");
+      const phone = document.getElementById("i3");
+      const email = document.getElementById("i4");
+      const age = document.getElementById("i5");
+      const height = document.getElementById("i6");
 
+      users.push({
+        name: name.value,
+        address: address.value,
+        phone: phone.value,
+        email: email.value,
+        age: age.value,
+        height: height.value,
+      });
+      var usersData = users.map((val, i) => {
+        return `<div> 
+          ${i}
+          ${val.name} 
+     ${val.address} 
+     ${val.phone} 
+       ${val.email} 
+         ${val.age} 
+         ${val.height}<button>X<button/> <div/> `;
+      });
 
+      document.getElementById("data").innerHTML = usersData;
+    };
+      
+    
   </script>
 </html>

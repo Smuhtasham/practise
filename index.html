@@ -124,13 +124,33 @@
          <button onclick="edit(${i})">Edit</button> 
          </div> `;
     });
-    
-    edit = (i)=>{
-      let nam =prompt("Name change")
-      users.find((obj)=>{
-        return obj === user.length( )
-      })
-    }
+
+    edit = (i) => {
+      let name = prompt("Name change");
+      console.log({ name });
+      const objMy = users[i];
+      console.log({ objMy });
+      const updatedData = {
+        ...objMy,
+        name: name,
+      };
+      users.splice(i, 1, updatedData);
+      console.log(users);
+      const usersData = users.map((val, i) => {
+        return `<div> 
+          ${i}
+          ${val.name} 
+          ${val.address} 
+          ${val.phone} 
+          ${val.email} 
+          ${val.age} 
+          ${val.height}
+           <button onclick="del(${i})"> x </button>
+           <button onclick=("edit(${i})")>Edit</button> 
+           <div/> `;
+      });
+      document.getElementById("data").innerHTML = usersData;
+    };
 
     del = (i) => {
       users.splice(i, 1);

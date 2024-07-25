@@ -1,0 +1,19 @@
+body{
+    justify-content: center;
+    align-items: center;
+}
+span{
+    padding: 10px;
+    padding-top: 30px;
+    border: 2px solid black;
+}
+.main{
+    width: 100%;
+    padding-top: 20px;
+}
+.sub{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

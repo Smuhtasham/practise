@@ -1,5 +1,5 @@
 getData = () => {
-  const url = "https://randomuser.me/api?results=10";
+  const url = "https://randomuser.me/api?results=10&gender=female";
 
   fetch(url)
     .then((response) => {

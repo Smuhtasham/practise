@@ -1,33 +1,25 @@
-
-   
 getData = () => {
-  const url = "https://randomuser.me/api";
+  const url = "https://randomuser.me/api?results=10";
 
   fetch(url)
     .then((response) => {
       let data = response.json().then((data) => {
-        console.log({ data });
-        const name = data.results[0].name.first;
-        const email = data.results[0].email;
-        const cell = data.results[0].cell;
-        const dob = data.results[0].dob.age;
-        const gender = data.results[0].gender;
-        const location = data.results[0].location.city;
-        const img = data.results[0].picture.medium;
-
-        
-        // console.log({ name, img });
-
-    document.getElementById('name').innerHTML=`Name: ${name}`;
-    document.getElementById('email').innerHTML=`Email:${email}`;
-    document.getElementById('cell').innerHTML=`Phone: ${cell}`;
-    document.getElementById('dob').innerHTML=`Age: ${dob} Years`;
-    document.getElementById('gender').innerHTML=`gender: ${gender}`;
-    document.getElementById('location').innerHTML=`Location: ${location}`;
-    document.getElementById('img').innerHTML=`<img src="${img}"/>`;
-
-
-      });
+        console.log({data});
+        let userData = data.results.map((data) => {
+          return (
+            `<div style="align-items:center; justify-content:center;">
+             <span> Name: ${data.name.first}</span>
+               <span>Email:${data.email}</span>
+                <span>Phone: ${data.cell}</span>
+                 <span>Age: ${data.dob.age} Years </span>
+                  <span>gender: ${data.gender}</span>
+                   <span>Location: ${data.location.city}</span>
+              <span><img src="${data.picture.medium}" /></span></div>  `
+          );
+         
+        });
+         document.getElementById("data").innerHTML = userData;
+      }); console.log(data)
     })
     .catch((reject) => {
       return console.log(reject);
